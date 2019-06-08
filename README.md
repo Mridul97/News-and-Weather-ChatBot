@@ -10,7 +10,7 @@ The get_weather has two entities, geo-city and weather_property. Some sample que
     
 The change_preferences has one entity, parameter. Some sample queries are 'Change my preferred city to New Delhi', 'Change my preferred country to India' etc.
    
-MongoDB has been integrated to store user preferences, so the preferences can be used while responding. For example, "Tell weather" will tell weather of your preferred city. Simmilarly tell news will give news of your preferred topic from your preferred country in your preferred language. 
+MongoDB has been integrated to store user preferences, so the preferences can be used while responding. For example, "Tell weather" will tell weather of your preferred city. Similarly tell news will give news of your preferred topic from your preferred country in your preferred language. 
     
 ## Hosted on : https://news-and-weather-chatbot.herokuapp.com/
 
