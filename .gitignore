@@ -1,0 +1,7 @@
+*.ipynb
+*.pyc
+myvenv
+api_python_wrapper.py
+test.py
+client-secret.json
+config.py
