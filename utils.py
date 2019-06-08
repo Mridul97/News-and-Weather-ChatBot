@@ -127,6 +127,7 @@ def get_weather(parameters, session_id):
         return "Cloud Coverage :" + str(w.get_clouds()) + "%" , w.get_weather_icon_url()
     if (parameters.get('weather_property') == 'Pressure'):
         return "Pressure :" + str(w.get_pressure()['press']) + " mb" , w.get_weather_icon_url()
+    return "Sorry didn't get you"
 
 def detect_intent_from_text(text, session_id, language_code='en'):
     session = dialogflow_session_client.session_path(PROJECT_ID, session_id)
@@ -151,8 +152,7 @@ def fetch_reply(msg, session_id):
     if response.intent.display_name == 'get_weather':
         if(type(get_weather(dict(response.parameters), session_id)) == str):
             weather = get_weather(dict(response.parameters), session_id)
-            weather_str = "The current conditions are : " + weather
-            return weather_str
+            return weather
         else :
             weather , url = get_weather(dict(response.parameters), session_id)
             weather_str = "The current conditions are : " + weather
