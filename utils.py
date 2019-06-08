@@ -110,6 +110,14 @@ def get_weather(parameters, session_id):
         return "Temperature :" + str(w.get_temperature()['temp']) + " K" , w.get_weather_icon_url()
     if (parameters.get('weather_property') == 'Weather Condition'):
         return  "\n" + str(w.get_detailed_status()) + "\nTemperature : " +  str(w.get_temperature()['temp']) + " K" + "\nPressure : " + str(w.get_pressure()['press']) + " mb" + "\nHumidity : " + str(w.get_humidity()) + "%" + "\nClouds Coverage : " + str(w.get_clouds()) + "%" + "\nWind : {} km/h at {} deg".format(w.get_wind()['speed'], w.get_wind()['deg']) , w.get_weather_icon_url() 
+    if (parameters.get('weather_property') == 'Humidity'):
+        return "Humidity :" + str(w.get_humidity()) + "%" , w.get_weather_icon_url()
+    if (parameters.get('weather_property') == 'Wind'):
+        return "Wind : {} km/h at {} deg".format(w.get_wind()['speed'], w.get_wind()['deg']) , w.get_weather_icon_url() 
+    if (parameters.get('weather_property') == 'Cloud Coverage'):
+        return "Cloud Coverage :" + str(w.get_clouds()) + "%" , w.get_weather_icon_url()
+    if (parameters.get('weather_property') == 'Pressure'):
+        return "Pressure :" + str(w.get_pressure()['press']) + " mb" , w.get_weather_icon_url()
 
 def detect_intent_from_text(text, session_id, language_code='en'):
     session = dialogflow_session_client.session_path(PROJECT_ID, session_id)

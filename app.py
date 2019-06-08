@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello, World!"
+    return "Welcome to the Home Page of News and Weather Chatbot!"
 
 @app.route("/sms", methods=['POST'])
 def sms_reply():
