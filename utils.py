@@ -95,6 +95,15 @@ def change_preference(parameters, session_id):
                 strout += "Preferences changed successfully!"
     return strout
              
+def show_preferences(parameters, session_id):
+    if preferences.find_one({'user_id': session_id}) == None :
+        return "No preferences are set by you."
+    else :
+        user = preferences.find_one({'user_id': session_id})
+        return "Country : {} \nCity : {} \nLanguage : {} \nNews type : {}".format(user.get('country'), user.get('city'), user.get('language'), user.get('news_type'))
+
+
+
 def get_weather(parameters, session_id):
     preferences = db.preferences
     print(parameters)
@@ -128,6 +137,7 @@ def detect_intent_from_text(text, session_id, language_code='en'):
 
 def fetch_reply(msg, session_id):
     response = detect_intent_from_text(msg, session_id)
+    print(response.intent.display_name)
 
     if response.intent.display_name == 'get_news':
         # return "ok I will show you news {}".format(
@@ -153,5 +163,8 @@ def fetch_reply(msg, session_id):
             return "The preferences were not changed. Please try again"
         else:
             return outstr
+    if response.intent.display_name == 'show_preferences':
+        outstr = show_preferences(dict(response.parameters), session_id)
+        return "Your preferences are : \n" + outstr
     else:
         return response.fulfillment_text
