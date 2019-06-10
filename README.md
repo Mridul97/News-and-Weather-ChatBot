@@ -8,7 +8,7 @@ The get_news intent has three entities, news_type, geo-country and language. Som
    
 The get_weather intent has two entities, geo-city and weather_property. Some sample queries are 'Tell temperature in New Delhi', "Weather in London", "Tell humidity in Los Angeles" etc. Here also user's preferred city is stored, you can set your preferred city and then you can just write 'Tell weather' and you will get weather of your preferred city. You can also ask for any particular property also like cloud coverage, wind etc. 
     
-The change_preferences intent has one entity, parameter. Some sample queries are 'Change my preferred city to New Delhi', 'Change my preferred country to India' etc.
+The change_preferences intent has one entity, parameter. Some sample queries are 'Set my preferred city to New Delhi', 'Change my preferred country to India' etc.
 
 The show_preferences intent has no entity. Some sample queries are 'Show preferences', "Show me my preferences", "Tell me my preferences" etc.
    
